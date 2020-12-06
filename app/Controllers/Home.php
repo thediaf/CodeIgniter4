@@ -7,11 +7,11 @@ class Home extends BaseController
 		return view('welcome_message');
 	}
 
-	public function showme($page = 'home')
+	public function showme($page = 'index')
 	{
 		// echo 'hdjhfch';
 		echo view('template/header.php');
-		echo view('pages/index.php');
+		echo view('pages/'. $page . '.php');
 		echo view('template/footer.php');
 	}
 
