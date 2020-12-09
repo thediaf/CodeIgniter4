@@ -1,5 +1,7 @@
 <?php namespace App\Controllers;
 
+use App\Models\BlogModel;
+
 class Home extends BaseController
 {
 	public function index()
@@ -9,8 +11,10 @@ class Home extends BaseController
 
 	public function showme($page = 'index')
 	{
-		// echo 'hdjhfch';
-		echo view('template/header.php');
+		$model = new BlogModel();
+		$data['articles'] =  $model->getPosts();
+		
+		echo view('template/header.php', $data);
 		echo view('pages/'. $page . '.php');
 		echo view('template/footer.php');
 	}
